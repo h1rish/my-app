@@ -10,7 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'make check || true'
-                junit '**/target/*.xml'
+                junit '/var/lib/jenkins/workspace/happy/target/*.jar'
             }
         }    
     }
