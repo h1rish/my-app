@@ -1,11 +1,3 @@
-
-pipeline { 
-    agent any 
-    stages {
-        stage('Build') { 
-            steps { 
-                sh 'mvn package'
-            }
-        }
-    }
-}
+def username='jenkins'
+echo 'hello mr ${username}
+echo " is it mr.${username}"
