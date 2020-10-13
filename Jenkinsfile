@@ -1,3 +1,10 @@
-def username='jenkins'
-echo 'hello mr ${username}'
-echo " is it mr.${username}"
+pipeline {
+  agents any
+  stages {
+    stage('example') {
+      steps {
+        echo " running ${env.BUILD_NUMBER} ON ${ENV.JENKINS_URL} "
+      }
+    }
+  }
+}  
