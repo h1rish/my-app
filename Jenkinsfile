@@ -1,4 +1,4 @@
-Pipeline {
+pipeline {
   agents any
   stages {
     stage('example') {
