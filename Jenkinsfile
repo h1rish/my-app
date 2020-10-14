@@ -1,10 +1,13 @@
 pipeline {
   agent any
+  parameters {
+    string(name: 'Greeting' ,defaultvalue: 'Hello' ,description: 'How should i greet the world')
+  }
   stages {
     stage('example') {
       steps {
-        echo " running ${env.BUILD_ID} ON ${ENV.JENKINS_URL} "
+        echo "${params.Greeting} world!"
       }
     }
   }
-}
+}  
