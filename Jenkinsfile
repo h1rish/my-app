@@ -9,12 +9,12 @@ pipeline {
         stage('Example Deploy') {
             when {
                 expression {
-                    currentBuild.result -1 = previousBuild.result
-                    println 'previousBuild.result'
+                    (currentBuild.result -1) = previousBuild.result
                 }
             }    
             steps {
                 sh ' git --version '
+                println 'previousBuild.result'
             }
         }
     }
