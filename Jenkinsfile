@@ -1,13 +1,19 @@
 pipeline {
   agent any
-  parameters {
-    string(name: 'Greeting' , defaultValue: 'Hello' , description: 'How should i greet the world')
-  }
   stages {
-    stage('example') {
+    stage('exampe') {
+      input {
+        message " shall we continue "
+        ok "ok"
+        submitter "harish"
+        parameters {
+          string(name: 'hai' , defaultValue: 'harish' , description: 'welcome message')
+        }
+      }
       steps {
-        echo "${params.Greeting} world!"
+        echo " hello ${params.hai} "
       }
     }
   }
 }  
+      
