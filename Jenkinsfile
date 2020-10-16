@@ -8,8 +8,10 @@ pipeline {
         }
         stage('Example Deploy') {
             when {
-                branch 'master'
-            }
+                expression {
+                    currentBuild.result == null || currentBuild.result== 'success'
+                }
+            }    
             steps {
                 sh ' git --verssion '
             }
