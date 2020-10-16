@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('example') {
       steps {
-        echo " hello ${hai} "
+        echo " hello ${params.hai} "
       }
     }
   }
