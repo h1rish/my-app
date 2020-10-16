@@ -9,12 +9,13 @@ pipeline {
         stage('Example Deploy') {
             when {
                 expression {
-                    (currentBuild.result -1) = previousBuild.result
+                    if (currentBuild.result -1 == 'success') {
+                        println ("hai")
+                    }    
                 }
             }    
             steps {
                 sh ' git --version '
-                println 'previousBuild.result'
             }
         }
     }
