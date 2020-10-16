@@ -4,7 +4,7 @@ pipeline {
         stage ('running parallel') {
             failfast true
             parallel {
-                stage('stage1) {
+                stage('stage1') {
                       steps {
                           echo " hello harry "
                       }
