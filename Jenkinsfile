@@ -13,7 +13,7 @@ pipeline {
                 }
             }    
             steps {
-                sh ' git --verssion '
+                sh ' git --version '
             }
         }
     }
