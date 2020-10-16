@@ -1,13 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('exampe') {
+    stage('example') {
       input {
-        message " shall we continue "
+        message " passing some value "
         ok "ok"
-        submitter "harish"
+        submitter "harry"
         parameters {
-          string(name: 'hai' , defaultValue: 'harish' , description: 'welcome message')
+          string(name: 'hai' , defaultValue: 'harish' , description: 'welcoming')
         }
       }
       steps {
@@ -16,4 +16,3 @@ pipeline {
     }
   }
 }  
-      
