@@ -1,21 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage ('running parallel') {
-            FailFast true
-            parallel {
-                stage('stage1') {
-                      steps {
-                          echo " hello harry "
-                      }
-                }      
-                stage('stage2') {
-                    steps {
-                        echo "hai"
-                    }    
-                }
-             }
+        stage('Example Build') {
+            steps {
+                echo 'Hello World'
+            }
         }
-    }                  
-}                   
+        stage('Example Deploy') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo 'Deploying'
+            }
+        }
+    }
+}
                           
