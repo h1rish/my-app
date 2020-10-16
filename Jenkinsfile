@@ -11,7 +11,7 @@ pipeline {
         }
       }
       steps {
-        echo " hello ${params.hai} "
+        echo " hello ${hai} "
       }
     }
   }
