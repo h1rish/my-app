@@ -9,7 +9,8 @@ pipeline {
         stage('Example Deploy') {
             when {
                 expression {
-                    currentBuild.result == null || currentBuild.result== 'success'
+                    currentBuild.result -1 = previousBuild.result
+                    println 'previousBuild.result'
                 }
             }    
             steps {
