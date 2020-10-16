@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  triggers {
+    cron('* * * * *')
+  }  
   parameters  {     
     string(name: 'hai' , defaultValue: 'harish' , description: 'welcoming')
   }
