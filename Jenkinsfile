@@ -1,19 +1,21 @@
-
 pipeline {
     agent any
     stages {
-        stage('Test') {
-            steps {
-                sh 'make check'
-            }
+        stage ('running parallel') {
+            failfast true
+            parallel {
+                stage('stage1) {
+                      steps {
+                          echo " hello harry "
+                      }
+                }      
+                stage('stage2') {
+                    steps {
+                        echo "hai"
+                    }    
+                }
+             }
         }
-    }
-    post {
-        always {
-            junit '**/target/*.xml'
-        }
-        failure {
-            mail to: 'harish496a@gmail.com', subject: 'The Pipeline failed :('
-        }
-    }
-}
+    }                  
+}                   
+                          
