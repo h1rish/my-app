@@ -8,10 +8,10 @@ pipeline {
         }
         stage('Example Deploy') {
             when {
-                branch 'production'
+                branch 'master'
             }
             steps {
-                echo 'Deploying'
+                sh ' git --verssion '
             }
         }
     }
