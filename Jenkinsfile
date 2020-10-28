@@ -9,7 +9,8 @@ pipeline {
     stage(' upload war to nexus') {
       steps {
         nexusArtifactUploader artifacts: [
-          [artifactId: 'myweb',
+          [
+          artifactId: 'myweb',
           classifier: '',
           file: '/var/lib/jenkins/workspace/hai/target/myweb-1.0.0.war', 
           type: 'war'
