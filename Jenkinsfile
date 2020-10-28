@@ -12,7 +12,7 @@ pipeline {
           [
             artifactId: 'myweb', 
             classifier: '',
-            file: 'target/my-app-1.0.0.war',
+            file: '/var/lib/jenkins/workspace/hai/src/main/resources',
             type: 'war'
           ]
         ],
