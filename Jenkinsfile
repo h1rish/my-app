@@ -12,8 +12,8 @@ pipeline {
           [
             artifactId: 'myweb', 
             classifier: '',
-            file: 'target/my-app-1.0.0.jar',
-            type: 'jar'
+            file: 'target/my-app-1.0.0.war',
+            type: 'war'
           ]
         ],
           credentialsId: 'a2814139-5446-40bc-801f-fc6caaab5c96',
