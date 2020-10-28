@@ -11,7 +11,7 @@ pipeline {
         nexusArtifactUploader artifacts: [
           [artifactId: 'myweb',
           classifier: '',
-          file: '', 
+          file: '/var/lib/jenkins/workspace/hai/target/myweb-1.0.0.war', 
           type: 'war'
           ]
         ],
