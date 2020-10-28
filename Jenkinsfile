@@ -8,7 +8,7 @@ pipeline {
     }
     stage(' upload war to nexus') {
       steps {
-        nexusArtifactUploader artifacts:[
+        sh 'nexusArtifactUploader artifacts:[
           [
             artifactId: 'myweb', 
             classifier: '',
@@ -22,7 +22,7 @@ pipeline {
           nexusVersion: 'nexus3',
           protocol: 'http', 
           repository: 'my-app-release', 
-          version: '1.0.0'
+          version: '1.0.0' '
       }
     }  
   }  
