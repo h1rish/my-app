@@ -21,7 +21,7 @@ pipeline {
           nexusUrl: '172.31.67.171',
           nexusVersion: 'nexus3',
           protocol: 'http',
-          repository: 'my-app-release',
+          repository: 'my-app',
           version: '1.0.0'  
       }
     }  
