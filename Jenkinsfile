@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'mvn clean deploy'
+        sh 'mvn clean package deploy'
       }
     }
     stage(' upload war to nexus') {
