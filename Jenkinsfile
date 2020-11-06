@@ -14,15 +14,14 @@ pipeline {
     }
     stage(' docker build ') {
       steps {
-        sh 'docker build -t myimage:1.0 .'
+        sh 'docker build -t "$registry":"$BUILD_NUMBER" .'
    
       }
     }
-    stage (' deliver to docker hub ') {
+    stage (' deliver to dockerhub ') {
       steps {
-        withDockerRegistry([ credentialsId: "$registrycredential", url: " "]) {
-        
-        sh ' docker push harishchow/myimage:1.0 '
+        withDockerRegistry([ credentialsId: "$registrycredential", url: ""]) {
+          sh 'docker push $registry":"$BUILD_NUMBER'
         }
       }  
     }  
