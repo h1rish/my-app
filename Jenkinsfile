@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "harishchow"
-    registrycredentialId = "dockerlogin"
+    registrycredential = "dockerlogin"
     dockerImage = ''
   }
   agent any
@@ -14,14 +14,14 @@ pipeline {
     }
     stage(' docker build ') {
       steps {
-        sh 'docker build -t "$registry":"$BUILD_NUMBER" .'
+        sh 'docker build -t myimage:1.0 .'
    
       }
     }
     stage (' deliver to dockerhub ') {
       steps {
-        withDockerRegistry([ credentialsId: "$registrycredential", url: ""]) {
-          sh 'docker push $registry":"$BUILD_NUMBER'
+        withDockerRegistry([ credentialsId: "credential", url: ""]) {
+          sh 'docker push harishchow/myimage:1.0
         }
       }  
     }  
