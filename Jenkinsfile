@@ -5,5 +5,12 @@ pipeline {
       steps {
         sh 'mvn clean package'
       }
-    }  
+    }
+    stage(' docker build ') {
+      steps {
+        sh 'docker build -t myimage:1.0 .'
    
+      }
+    }
+  }
+} 
