@@ -1,3 +1,4 @@
-FROM ubuntu:latest
-CMD ["/bin/echo", "HELLO WORLD...."]'
-
+FROM ubuntu
+MAINTAINER harish
+CMD ["echo","hai"]
+USER nobody
