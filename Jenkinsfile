@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    reg = "harishchow"
+    registry = "harishchow"
     credentials = "dockerlogin"
     dockerImage = ''
   }
