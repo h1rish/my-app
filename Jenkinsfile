@@ -20,7 +20,7 @@ pipeline {
     }
     stage (' deliver to docker hub ') {
       steps {
-        withDockerRegistry([credentialsId: '$creds'], url: '') {
+        withDockerRegistry([credentialsId: '$creds', url: '']) {
         
         sh ' docker push harishchow/myimage:1.0 '
         }
