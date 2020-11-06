@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "harishchow/happy"
+    registry = "harishchow/myimage"
     registrycredential = "dockerlogin"
     dockerImage = ''
   }
@@ -20,7 +20,7 @@ pipeline {
     }
     stage (' deliver to dockerhub ') {
       steps {
-        withDockerRegistry([ credentialsId: "credential", url: ""]) {
+        withDockerRegistry([ credentialsId: "registrycredential", url: ""]) {
           sh 'docker push harishchow/myimage:1.0'
         }
       }  
