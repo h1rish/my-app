@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'mvn clean package -D skiptests'
+        sh 'mvn package'
       }
     }
     stage(' docker build ') {
