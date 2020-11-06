@@ -15,7 +15,7 @@ pipeline {
     }
     stage (' deliver to docker hub ') {
       steps {
-        withDockerRegistry(credentialsId: '8a342603-ad00-478a-a145-a71eb40265cf', url: 'https://hub.docker.com/repository/docker/harishchow') {
+        withDockerRegistry(credentialsId: '8a342603-ad00-478a-a145-a71eb40265cf', url: 'https://hub.docker.com/') {
         
         sh ' docker push harishchow/myimage:1.0 '
         }
