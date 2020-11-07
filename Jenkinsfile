@@ -13,7 +13,8 @@ pipeline {
     }  
     stage(' docker build ') {
       steps {
-        sh 'docker build -t myimage:1.0 .'
+        script {
+          sh 'docker build -t "$registry":$BUILD_NUMBER" .'
    
       }
     }
@@ -21,8 +22,8 @@ pipeline {
       steps {
         script {
           docker.withRegistry( '', registryCredential ) { 
-            sh 'docker tag myimage:1.0 harishchow/myimage:1.0'
-            sh 'docker push harishchow/myimage:1.0'
+            
+            sh 'docker push "$registry":$BUILD_NUMBER"'
           }
         }
       }  
