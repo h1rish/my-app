@@ -6,6 +6,11 @@ pipeline {
   }
   agent any
   stages {
+    stage ('maven biuld and compile') {
+      steps {
+        sh 'mvn package'
+      }
+    }  
     stage(' docker build ') {
       steps {
         sh 'docker build -t myimage:1.0 .'
