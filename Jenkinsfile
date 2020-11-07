@@ -16,7 +16,8 @@ pipeline {
       steps {
         script {
           docker.withRegistry( '', registryCredential ) { 
-              dockerImage.push() 
+            sh 'docker tag myimage:1.0 harishchow/myimage:1.0'
+            sh 'docker push harishchow/myimage:1.0'
           }
         }
       }  
