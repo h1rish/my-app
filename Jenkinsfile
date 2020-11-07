@@ -15,7 +15,7 @@ pipeline {
       steps {
         
         
-        sh 'cd /var/lib/jenkins/workspace/hello && docker build -t "$registry":$BUILD_NUMBER" .'
+        sh 'docker build -t "$registry":"$BUILD_NUMBER" .'
           
       }
     }
