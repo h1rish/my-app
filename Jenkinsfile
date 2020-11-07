@@ -13,9 +13,10 @@ pipeline {
     }  
     stage(' docker build ') {
       steps {
-        script {
-          sh 'cd /var/lib/jenkins/workspace/hello && docker build -t "$registry":$BUILD_NUMBER" .'
-        }  
+        
+        
+        sh 'cd /var/lib/jenkins/workspace/hello && docker build -t "$registry":$BUILD_NUMBER" .'
+          
       }
     }
     stage (' push to dockerhub ') {
