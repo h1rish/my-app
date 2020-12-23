@@ -1,33 +1,25 @@
 pipeline {
-  environment {
-    registry = "harishchow/hai" 
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-  }
+  
   agent any
   stages {
-    stage ('maven biuld and compile') {
+    stage('quality gate status check'){
+      steps{
+        scripts {
+          withSonarQubeEnv('sonarserver'){
+            sh "mvn sonar:sonar"
+          }
+          timeout(time: 1, unit: 'HOURS') {
+            def qg = WaitForQualitygtes(happy)
+            if (qg.status!= "ok") {
+              error "pipeline aborted due to qualitygate failure: ${qg.status}"
+            }
+          } 
+        }
+      }
+    }
+     stage ('maven biuld and compile') {
       steps {
         sh 'mvn package'
       }
-    }  
-    stage(' docker build ') {
-      steps {
-        
-        
-        sh 'docker build -t "$registry":"$BUILD_NUMBER" .'
-          
-      }
     }
-    stage (' push to dockerhub ') {
-      steps {
-        script {
-          docker.withRegistry( '', registryCredential ) { 
-            
-            sh 'docker push $registry:$BUILD_NUMBER'
-          }
-        }
-      }  
-    }  
-  }
 } 
