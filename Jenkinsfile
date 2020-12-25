@@ -1,10 +1,10 @@
 pipeline {
-  
-  agent any 
-    stage ('maven biuld and compile') {
+  agent any
+  stages {
+    stage('maven compilaton and packaging') {
       steps {
-        sh 'mvn package'
+        sh 'mvn clean package'
       }
     }
-}    
-    
+  }
+}  
