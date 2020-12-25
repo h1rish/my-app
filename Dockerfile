@@ -1,4 +1,6 @@
-FROM ubuntu
+FROM tomcat
+WORKDIR webapps
+COPY target/webapps.war . 
 MAINTAINER harish
-CMD ["echo","hello hai"]
+CMD ["sh","/usr/local/tomcat/bin/startup.sh"]
 
