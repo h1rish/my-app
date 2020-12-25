@@ -13,10 +13,10 @@ pipeline {
     stage('build image') {
       steps {
         script{
-          sh 'docker build -t harishchow\hai:DockerTag'
+          sh 'docker build -t harishchow/hai:DockerTag'
           withCredentials([string(credentialsId: '12', variable: 'dockerpassword')]) {
             sh 'docker login -u harishchow -p $dockerpassword'
-            sh 'docker push harishchow\hai:Dockertag'
+            sh 'docker push harishchow/hai:Dockertag'
           }
         }
       }
