@@ -6,5 +6,10 @@ pipeline {
         sh 'mvn clean package'
       }
     }
+    stage('docker) {
+       steps{
+         build job: 'job2'
+       }
+    }              
   }
-}  
+}          
