@@ -4,8 +4,8 @@ pipeline {
     stage('docker build') {
       steps {
         sh 'docker build . -t harishchow/hai:2.0'
-        withCredentials([file(credentialsId: '', variable: 'mydocker')]) {
-          sh 'docker login -u harishchow -p ${'mydocker'}'
+        withCredentials([string(credentialsId: '123docker', variable: 'myvariable')]) {
+          sh 'docker login -u harishchow -p ${'myvariable'}'
           sh 'docker push harishchow/hai:2.0'
         }
        }
