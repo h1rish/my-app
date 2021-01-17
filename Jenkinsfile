@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    optiopns {
+    options {
       buildDiscarder(logRotator(numToKeepStr:'2'))
     }  
     stage('maven compilaton and packaging') {
