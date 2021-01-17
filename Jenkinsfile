@@ -12,6 +12,11 @@ pipeline {
         sh 'mvn clean install'
       }
     }
+    stage('next job'){
+      steps{
+        build job: 'job2'
+      }
+    }  
    
   }
 }          
