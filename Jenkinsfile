@@ -8,7 +8,7 @@ pipeline {
      
     stage('maven compilaton and packaging') {
       steps {
-        sh 'mvn package -D skiptests
+        sh 'mvn package -D skiptests'
         sh 'mvn clean install'
       }
     }
