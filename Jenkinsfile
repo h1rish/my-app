@@ -3,15 +3,8 @@ pipeline {
   stages {
     stage('maven compilaton and packaging') {
       steps {
-        sh 'mvn clean package'
+        sh 'mvn clean deploy'
       }
-    }
-    
- 
-    stage('docker') {
-       steps{
-         build job: 'job2'
-       }
     }
   }
 }          
