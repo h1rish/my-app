@@ -12,17 +12,6 @@ pipeline {
         sh 'mvn clean install'
       }
     }
-    stage('docker build') {
-      steps {
-        script{
-          
-          sh 'docker build . -t harishchow/hai:2.0'
-          withCredentials([string(credentialsId: '123docker', variable: 'myvariable')]) {
-            sh 'docker login -u harishchow -p $myvariable'
-            sh 'docker push harishchow/hai:2.0'
-        }
-       }   
-      }
-    }
+   
   }
 }          
