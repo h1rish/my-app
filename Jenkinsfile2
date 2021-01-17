@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('docker build') {
+    stage('build') {
       steps {
-        echo "hai"
+        sh 'mvn clean package'
     
        }
      }
