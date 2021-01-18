@@ -38,4 +38,10 @@ pipeline {
       }
     }  
   }
+  post {
+    failure {
+      mailto: harish496a@gmail.com
+      subject: 'pipeline failed'
+    }
+  }  
 }          
