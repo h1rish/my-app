@@ -1,5 +1,12 @@
+def getDockerTag(){
+  def tag= sh script: 'git rev-parse HEAD', returnStdout:true
+  return tag
+}  
 pipeline {
   agent any
+  environment {
+    docker-tag= getDockerTag()
+  }  
   
   options {
       buildDiscarder(logRotator(numToKeepStr:'2'))
@@ -14,7 +21,7 @@ pipeline {
     }
     stage('next job'){
       steps{
-        build job: 'job2'
+        
       }
     }  
    
