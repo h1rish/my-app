@@ -5,7 +5,8 @@ def getDockerTag(){
 pipeline {
   agent any
   environment {
-    Docker_tag= getDockerTag()
+    1= getDockerTag()
+    1+= Docker_tag
   }  
   
   options {
