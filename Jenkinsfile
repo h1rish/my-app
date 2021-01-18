@@ -5,7 +5,7 @@ def getDockerTag(){
 pipeline {
   agent any
   environment {
-    docker-tag= getDockerTag()
+    Docker-tag= getDockerTag()
   }  
   
   options {
@@ -21,9 +21,21 @@ pipeline {
     }
     stage('next job'){
       steps{
+        script{
+          
+          sh 'docker build . -t harishchow/hai:Docker-tag'
+          withCredentials([string(credentialsId: '123docker', variable: 'myvariable')]) {
+            sh 'docker login -u harishchow -p $myvariable'
+            sh 'docker push harishchow/hai:Docker-tag'
+          }
+        }   
         
       }
     }  
-   
+    stage('building another job2'){
+      steps{
+        build job: 'job2'
+      }
+    }  
   }
 }          
