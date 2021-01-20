@@ -12,13 +12,15 @@ pipeline {
       buildDiscarder(logRotator(numToKeepStr:'1'))
   } 
   stages {
-     
-    stage('maven compilaton and packaging') {
-      steps {
-        sh 'mvn package -D skiptests'
-        sh 'mvn clean install'
-      }
-    }
+    stage('parallel stage is running') {
+      failFast true
+      parallel {
+        stage('maven compilaton and packaging') {
+          steps {
+            sh 'mvn package -D skiptests'
+            sh 'mvn clean install'
+          }
+        }
     stage('next job'){
       steps{
         script{
@@ -36,8 +38,8 @@ pipeline {
       steps{
         build job: 'job2'
       }
-    }  
+    }
+      }
+    }
   }
-  
-  
-}          
+}  
